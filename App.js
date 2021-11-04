@@ -1,10 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { image,StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from "./screens/Login";
 import Home from "./screens/Home" ;
+import CartList from './screens/Cart';
+import Loginpage from './screens/Login';
+import Homepage from './screens/Home';
+
 
 
   const MainNav = createNativeStackNavigator();
@@ -12,9 +14,12 @@ import Home from "./screens/Home" ;
   function App() {
     return (
       <NavigationContainer>
-        <MainNav.Navigator screenOptions={{headershown: false}} initialRouteName = "Home" >
-        <MainNav.Screen name = "Home" component={Home} />
-        <MainNav.Screen name="Login" component={Login} />
+        <MainNav.Navigator 
+        screenOptions={{headershown: false}}
+         initialRouteName = "Login" >
+        <MainNav.Screen name = "Home" component={Homepage} />
+        <MainNav.Screen name="Login" component={Loginpage} />
+        
           
         </MainNav.Navigator>
       </NavigationContainer>

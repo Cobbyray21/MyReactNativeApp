@@ -3,51 +3,88 @@ import {View, Text, Image, StyleSheet, onPress, TouchableOpacity} from "react-na
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/core";
 
-
-
-
-const  Comp = (props) => {
+const LoginButton = ({logo, logoColor, id, groundColor, textColor}) => {
   return(
-  <TouchableOpacity style={{
+  <TouchableOpacity 
+   style={{
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "baseline",
-    backgroundColor: "#e3e3e3",
+    backgroundColor: `${groundColor}`,
     margin: 10,
     padding: 20,
     paddingHorizontal: 100,
     borderRadius: 10
-     }}>
+     }}
+     >
     
-       <AntDesign name={props.logo} size={24} color={props.logocolor} />
+       <AntDesign name={logo} size={24} color={logoColor} />
     <Text style = {{
       fontSize: 20,
-      marginLeft: 10}} >
-    Login with {props.id}
+      marginLeft: 10,
+    color : `${textColor}`}}
+       >
+    Login with {id}
     </Text>
   </TouchableOpacity>
   );
 }
-function Login(navigation) {
+  
+
+ const Loginpage = ()=> {
+  
+      const navigation=useNavigation()
+  
+      const handleHomepage=()=>{
+          navigation.navigate("Home")
+      }
+  
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "white"}}>
+      <View style={{ 
+        flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "white"}}>
+       
+       <View style= {{  
+        justifyContent:"center",
+        alignItems:"center"    }} >
         <Image 
         style = {{
-          width: 200, 
-          height: 150,
-          borderRadius: 70,
-        
-           }} 
+          
+          justifyContent:"center",
+          alignItems:"center",
+          width:200,
+        height: 220,
+        borderRadius: 20,
+        transform: [{ rotate: '-45deg' }] 
+         
+         }} 
           source = {{
-          uri:"https://images.unsplash.com/photo-1591831763226-916d8ebea4f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80"
+          uri: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
         }}/>
-        <Text style={{ color: "black", fontSize: 22, alignItems: 'center', justifyContent: "center"}}> Welcome to
+        </View>
+        
+
+        <Text style={{ marginTop: 70,color: "black", fontSize: 22, alignItems: 'center', justifyContent: "center"}}> Welcome to
           </Text>
           <Text style={{ fontSize: 26 ,fontWeight: "bold"}} >Power Bike Shop</Text>
          
-           <Comp id ="Gmail" logo ="google" logocolor ="red"  />
-          <Comp id ="Apple" logo ="apple1" logocolor ="white" />
+           <LoginButton 
+           id = "Gmail"
+           groundColor = "#e3e3e3" 
+            logo = "google"
+            logoColor = "red" 
+            textColor = "black"
+            />
+
+           <LoginButton 
+             id = "Apple"
+             roundColor = "black"
+            logo = "apple1"
+            logoColor = "white"
+            textColor = "white" 
+            />
+          
           <Text style ={{ marginTop: 5, fontWeight:500, color: "grey"}} >Not a member?{" "}
             <TouchableOpacity>
               <Text style= {{fontWeight: "bold", color: "orange"}}>
@@ -59,5 +96,4 @@ function Login(navigation) {
     );
   }
   
-
-  export default Login;
+  export default Loginpage;
