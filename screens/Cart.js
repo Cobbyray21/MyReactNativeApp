@@ -159,7 +159,7 @@ title:{
     },
     borderHead:{
         borderBottomWidth:2,
-        borderBottomStyle:"dotted",
+        /*borderBottomStyle:"dotted",*/
         borderBottomColor:"#BEBEBE",
        
     },
