@@ -8,8 +8,7 @@ import { useNavigation } from "@react-navigation/core";
 const LoginButton = ({logo, logoColor, id, groundColor, textColor}) => {
   return(
   <TouchableOpacity 
-   style={{
-    flexDirection: "row",
+   style={{flexDirection: "row",
     justifyContent: "center",
     alignItems: "baseline",
     backgroundColor: `${groundColor}`,
@@ -77,14 +76,14 @@ const LoginButton = ({logo, logoColor, id, groundColor, textColor}) => {
             textColor = "black"
             />
 
-           <LoginButton 
-             id = "Apple"
-             roundColor = "black"
+             <LoginButton 
+           id = "Apple"
+           groundColor = "black" 
             logo = "apple1"
-            logoColor = "white"
-            textColor = "white" 
+            logoColor = "white" 
+            textColor = "white"
             />
-          
+  
           <Text style ={{ marginTop: 5, fontWeight:500, color: "grey"}} >Not a member?{" "}
             <TouchableOpacity>
               <Text style= {{fontWeight: "bold", color: "orange"}}>
