@@ -5,9 +5,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/core";
 
+
 const LoginButton = ({logo, logoColor, id, groundColor, textColor}) => {
   return(
-  <TouchableOpacity 
+  <TouchableOpacity switcher 
    style={{flexDirection: "row",
     justifyContent: "center",
     alignItems: "baseline",
@@ -67,7 +68,7 @@ const LoginButton = ({logo, logoColor, id, groundColor, textColor}) => {
         <Text style={{ marginTop: 70,color: "black", fontSize: 22, alignItems: 'center', justifyContent: "center"}}> Welcome to
           </Text>
           <Text style={{ fontSize: 26 ,fontWeight: "bold"}} >Power Bike Shop</Text>
-         
+         <View onPress = {handleHomepage}>
            <LoginButton 
            id = "Gmail"
            groundColor = "#e3e3e3" 
@@ -83,9 +84,9 @@ const LoginButton = ({logo, logoColor, id, groundColor, textColor}) => {
             logoColor = "white" 
             textColor = "white"
             />
-  
+          </View>
           <Text style ={{ marginTop: 5, fontWeight:500, color: "grey"}} >Not a member?{" "}
-            <TouchableOpacity>
+            <TouchableOpacity onPress = {handleHomepage}>
               <Text style= {{fontWeight: "bold", color: "orange"}}>
               Sign Up
             </Text>
